@@ -1,0 +1,12 @@
+nxn_homepage:
+    path:     /
+    defaults: { _controller: NXNNXNForumBundle:ForumIndex:forumindex }
+nxn_forum_index:
+    path:     /index
+    defaults: { _controller: NXNNXNForumBundle:ForumIndex:forumIndex }
+nxn_forum_section:
+    path:     /section/{section_id}/{page}
+    defaults: { _controller: NXNNXNForumBundle:ForumSection:forumSection, page : 1}
+nxn_forum_topic:
+    path:     /topic/{topic_id}/{page}
+    defaults: { _controller: NXNNXNForumBundle:ForumTopic:forumTopic, page : 1}

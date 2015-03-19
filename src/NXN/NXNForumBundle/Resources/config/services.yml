@@ -1,0 +1,8 @@
+services:
+#    nxnnxn_forum.example:
+#        class: NXN\NXNForumBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
+    theme:
+        class:  NXN\NXNForumBundle\Functions\Theme
+        calls:
+            - [setContainer, ["@service_container"]]

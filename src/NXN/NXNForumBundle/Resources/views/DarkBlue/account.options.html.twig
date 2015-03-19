@@ -1,0 +1,33 @@
+{% set link_avatars = "http://v-ie.uek.krakow.pl/~s176041/images/avatars/" %}
+{% if not is_granted('ROLE_USER') %}
+<div id="option-login">
+	<button id="action-login" class="account-popup-hidden">LOGOWANIE</button>
+</div>
+<div id="option-register">
+	<a id="action-register" title="Rejestracja" href="{{ path('fos_user_registration_register')}}">REJESTRACJA</a>
+</div>
+{% endif %}
+{% if is_granted('ROLE_USER') %}
+<div id="option-menu">
+	<span>Witaj {{ app.user.username }}</span>
+	<button id="action-menu" class="dropdown" title="Rejestracja" href="logout">MENU</button>
+</div>
+<div id="account-dropdown" style="display:none">
+	<div id="left-box-drop">
+		<img class="left-box-drop-image" src="{{ link_avatars }}/default.png"/>
+		<a href="{{ link }}/profile/view/{{ app.user.id}}">{{ app.user.username }}</a>
+		<div class="movie-meter-outer" style="margin-bottom:18px;">
+			<p class="movie-meter-level">Filmometr : {{ app.user.praiseLevel }}</p>
+			<p class="movie-meter-rank">Nowicjusz</p>
+		</div>
+		<a class="drop-option" href="">Panel Admina</a>
+	</div>
+	<div id="right-box-drop">
+		<a class="drop-option" href="{{ link }}/profile/edit">Edytuj profil</a>
+		<a class="drop-option" href="{{ link }}/myMovies">Moje filmy</a>
+		<a class="drop-option" href="{{ link }}/cart">Mój koszyk</a>
+		<a class="drop-option" href="{{ link }}/orders">Historia zamówień</a>
+		<a class="drop-option" href="{{ path('fos_user_security_logout')}}">Wyloguj się</a>
+	</div>
+</div>
+{% endif %}

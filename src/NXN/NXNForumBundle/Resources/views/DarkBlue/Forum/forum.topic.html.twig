@@ -1,0 +1,45 @@
+{% extends "NXNNXNForumBundle::" ~ theme ~ "/layout.html.twig" %}
+{% set start_active = '' %}
+{% set filmy_active = '' %}
+{% set forum_active = ' active' %}
+{% set cos_active = '' %}
+{% set kontakt_active = '' %}
+{% set link_avatars = "http://v-ie.uek.krakow.pl/~s176041/images/avatars/" %}
+
+
+{% block content %}
+	Forum / {{ category }} / {{ section }}
+	<section class="forum-view-topic-posts">
+	<header class="forum-topic-name"><h2 class="forum-topic-name-inner">{{ topic.name }}</h2></header>
+	{% for post in topic.posts %}
+		<article class="forum-post-wrapper">
+			<div class="post-author-info">
+				<a class="post-author-nick" href="{{ link }}/profile/view/{{post.postAuthorId.id}}">{{ post.postAuthorId.username }}</a>
+				<img class="post-author-avatar" src="{{ link_avatars }}{{ post.postAuthorId.avatar }}"/>
+				<div class="movie-meter-outer">
+					<p class="movie-meter-level">Filmometr : {{ post.postAuthorId.praiseLevel }}</p>
+					<p class="movie-meter-rank">Nowicjusz</p>
+				</div>
+			</div>
+			<div class="post-content">
+				{{ post.content }}
+			</div>
+		</article>
+	{% endfor %}
+	</section>
+	{% if is_granted('ROLE_USER') %}
+		<section id="quick-reply">
+			<form method="POST">
+				{{ form_row(form) }}
+			<button class="insert-forum-post" type="submit">ODPOWIEDZ</button>
+			</form>
+		</section>
+		
+	
+	{% endif %}
+	{% if not is_granted('ROLE_USER') %}
+		<section id="quick-reply-message">
+			<h4>Musisz być zalogowany aby pisać posty</h4>
+		</section>
+	{% endif %}
+{% endblock %}
