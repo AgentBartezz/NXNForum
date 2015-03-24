@@ -5,6 +5,7 @@ namespace NXN\NXNForumBundle\Entity;
 
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection as ArrayCollection;
 use NXN\NXNForumBundle\Entity\ForumPost as ForumPost;
 
 /**
@@ -22,7 +23,7 @@ class User extends BaseUser
 	
 	
 	/**
-     * @ORM\OneToMany(targetEntity="ForumPost", mappedBy="user")
+     * @ORM\OneToMany(targetEntity="\NXN\NXNForumBundle\Entity\ForumPost", mappedBy="postAuthorId")
      */
 	protected $posts;
 	

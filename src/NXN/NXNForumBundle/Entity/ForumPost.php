@@ -34,7 +34,7 @@ class ForumPost
     protected $section;
 	
 	/**
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="posts")
+     * @ORM\ManyToOne(targetEntity="\NXN\NXNForumBundle\Entity\User", inversedBy="posts")
      * @ORM\JoinColumn(name="post_author_id", referencedColumnName="id")
      */
     protected $postAuthorId;
@@ -50,7 +50,7 @@ class ForumPost
 	}
 	
 	/**
-     * @ORM\Column(type="string", length=1000, name="post_content")
+     * @ORM\Column(type="text", name="post_content")
      */
     protected $content;
 	

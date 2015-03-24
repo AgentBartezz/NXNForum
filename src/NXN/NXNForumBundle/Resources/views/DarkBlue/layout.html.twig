@@ -12,7 +12,7 @@
 			
 		<![endif]-->
 		
-		<title>VideoNet | Start</title>
+		<title>NXNForum</title>
 	</head>
 	<body>
 		<!--[if lte IE 8]>
@@ -27,9 +27,7 @@
 		<![endif]-->
 		<header id="superhit">
 			<div id="superhit-inner">
-				<a href="#">
-					<img src="{{ asset('images/banner.jpg') }}" alt="SUPERHIT TYGODNIA"/>
-				</a>
+				<a href="#" class="banner"></a>
 			</div>
 		</header>
 		<div id="under-bars">
@@ -37,15 +35,14 @@
 			<div id="top-bar" class="expanded-2">
 				<div id="top-bar-inner">
 					<div class="toggle-menu"><hr><br><hr><br><hr></div>
-					<img id="logo" src="{{ asset('images/logo.png') }}" alt="logoo"/>
 					<nav id="menu" role="navigation" class="collapsed-3">
 						<h6>Nawigacja</h6>
 						<ul class="menu-inner">
-							<li class="menu-item{{ start_active }}"><a href="{{ path('nxn_forum_index') }}" class="expanded-2" title="start"><i class="glyphicon glyphicon-home" aria-hidden="true"></i><span>START</span></a></li>
-							<li class="menu-item{{ filmy_active }}"><a href="{{ path('nxn_forum_index') }}" class="expanded-2" title="filmy"><i class="glyphicon glyphicon-film" aria-hidden="true"></i><span>FILMY</span></a></li>
 							<li class="menu-item{{ forum_active }}"><a href="{{ path('nxn_forum_index') }}" class="expanded-2" title="forum"><i class="glyphicon glyphicon-comment" aria-hidden="true"></i><span>FORUM</span></a></li>
+							<li class="menu-item{{ start_active }}"><a href="{{ path('nxn_forum_index') }}" class="expanded-2" title="grupy"><i class="glyphicon glyphicon-list" aria-hidden="true"></i><span>GRUPY</span></a></li>
+							<li class="menu-item{{ filmy_active }}"><a href="{{ path('nxn_forum_index') }}" class="expanded-2" title="użytkownicy"><i class="glyphicon glyphicon-user" aria-hidden="true"></i><span>UŻYTKOWNICY</span></a></li>
 							<li class="menu-item{{ cos_active }}"><a href="{{ path('nxn_forum_index') }}" class="expanded-2" title="konkursy"><i class="glyphicon glyphicon-gift" aria-hidden="true"></i><span>KONKURSY</span></a></li>
-							<li class="menu-item{{ kontakt_active }}"><a href="{{ path('nxn_forum_index') }}" class="expanded-2" title="kontakt"><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><span>KONTAKT</span></a></li>
+							<li class="menu-item{{ kontakt_active }}"><a href="{{ path('nxn_forum_index') }}" class="expanded-2" title="kontakt"><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><span>------</span></a></li>
 						</ul>
 					</nav>
 					{% if not is_granted('ROLE_USER') %}
@@ -66,14 +63,11 @@
 						<div id="icon-search-outer">
 							<i class="glyphicon glyphicon-search icon-search" aria-hidden="true"></i>
 						</div>
-						<input placeholder="Wyszukaj film..." type="text" id="search-input"/>
+						<input placeholder="Wyszukaj..." type="text" id="search-input"/>
 						<button id="search-btn">ZNAJDŹ</button>
-						<div id="search-results-outer" style="display:none">
-						
-						</div>
 					</div>
 					<div id="account-options">
-						{% include 'NXNNXNForumBundle::DarkBlue/account.options.html.twig' %}
+						{% include 'NXNNXNForumBundle::' ~ theme ~ '/account.options.html.twig' %}
 					</div>
 				</div>
 			</div>

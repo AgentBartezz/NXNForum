@@ -17,16 +17,16 @@
 		<img class="left-box-drop-image" src="{{ link_avatars }}/default.png"/>
 		<a href="{{ link }}/profile/view/{{ app.user.id}}">{{ app.user.username }}</a>
 		<div class="movie-meter-outer" style="margin-bottom:18px;">
-			<p class="movie-meter-level">Filmometr : {{ app.user.praiseLevel }}</p>
+			<p class="movie-meter-level">Pochwały : {{ app.user.praiseLevel }}</p>
 			<p class="movie-meter-rank">Nowicjusz</p>
 		</div>
 		<a class="drop-option" href="">Panel Admina</a>
 	</div>
 	<div id="right-box-drop">
-		<a class="drop-option" href="{{ link }}/profile/edit">Edytuj profil</a>
-		<a class="drop-option" href="{{ link }}/myMovies">Moje filmy</a>
-		<a class="drop-option" href="{{ link }}/cart">Mój koszyk</a>
-		<a class="drop-option" href="{{ link }}/orders">Historia zamówień</a>
+		<a class="drop-option" href="">Wiadomości</a>
+		<a class="drop-option" href="">Moje posty</a>
+		<a class="drop-option" href="">Edytuj profil</a>
+		<a class="drop-option" href="">Ustawienia</a>
 		<a class="drop-option" href="{{ path('fos_user_security_logout')}}">Wyloguj się</a>
 	</div>
 </div>

@@ -17,7 +17,7 @@
 				<a class="post-author-nick" href="{{ link }}/profile/view/{{post.postAuthorId.id}}">{{ post.postAuthorId.username }}</a>
 				<img class="post-author-avatar" src="{{ link_avatars }}{{ post.postAuthorId.avatar }}"/>
 				<div class="movie-meter-outer">
-					<p class="movie-meter-level">Filmometr : {{ post.postAuthorId.praiseLevel }}</p>
+					<p class="movie-meter-level">Pochwały : {{ post.postAuthorId.praiseLevel }}</p>
 					<p class="movie-meter-rank">Nowicjusz</p>
 				</div>
 			</div>
@@ -39,7 +39,7 @@
 	{% endif %}
 	{% if not is_granted('ROLE_USER') %}
 		<section id="quick-reply-message">
-			<h4>Musisz być zalogowany aby pisać posty</h4>
+			<p>Musisz być zalogowany aby pisać posty</p>
 		</section>
 	{% endif %}
 {% endblock %}
